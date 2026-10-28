@@ -459,9 +459,14 @@ button { font: inherit; color: inherit; }
   touch-action: none;
 }
 
-.tile.in-rack.selected { transform: translateY(-18%); box-shadow: 0 0 0 0.09em var(--accent), 0 0.3em 0.5em rgba(0, 0, 0, 0.5); }
+.tile.in-rack.selected { z-index: 2; transform: translateY(-18%); box-shadow: 0 0 0 0.09em var(--accent), 0 0.3em 0.5em rgba(0, 0, 0, 0.5); }
 .tile.in-rack.ghosted { opacity: 0.25; }
 .tile.in-rack.fresh { animation: pop 420ms ease-out; }
+
+/* Small screens: rack slots are narrower than 40 px, so the picked tile grows to make it easy to see and hit. */
+@media (max-width: 699px) {
+  .tile.in-rack.selected { transform: translateY(-22%) scale(1.35); }
+}
 
 .drag-ghost {
   position: fixed;
