@@ -1,0 +1,11 @@
+{
+  "name": "okey",
+  "version": "1.0.0",
+  "description": "Okey, the Turkish tile game of the rummy family, in the browser: you against three computer players.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}

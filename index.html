@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Okey</title>
+  <meta name="description" content="Okey, the Turkish tile game of the rummy family, in your browser: you against three computer players. Sets, runs, seven pairs, okey tiles and false jokers. English and Turkish.">
+  <meta name="theme-color" content="#0f172a">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Okey">
+  <meta property="og:description" content="The Turkish tile game in your browser: you against three computer players.">
+  <meta property="og:url" content="https://celaldrg.github.io/okey/">
+  <meta property="og:image" content="https://celaldrg.github.io/okey/docs/screenshot.png">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='10' y='4' width='44' height='56' rx='8' fill='%23fdf6e3' stroke='%23facc15' stroke-width='4'/%3E%3Ctext x='32' y='40' font-family='Arial,sans-serif' font-size='28' font-weight='700' text-anchor='middle' fill='%23dc2626'%3E7%3C/text%3E%3Ccircle cx='32' cy='50' r='3.5' fill='%23dc2626'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="src/main.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1 class="brand"><span class="brand-tile" aria-hidden="true">O</span><span data-i18n="title">Okey</span></h1>
+    <nav class="top-actions">
+      <button id="btn-new" class="btn" type="button" data-i18n="newGame">New game</button>
+      <button id="btn-scores" class="btn icon hide-wide" type="button" data-i18n-aria="scores" aria-label="Scores">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 4v16"/></svg>
+      </button>
+      <button id="btn-settings" class="btn icon" type="button" data-i18n-aria="settings" aria-label="Settings">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>
+      </button>
+      <button id="btn-rules" class="btn icon" type="button" data-i18n-aria="rules" aria-label="Rules">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"/><path d="M12 17h.01"/></svg>
+      </button>
+      <button id="btn-lang" class="btn lang" type="button" aria-label="TR: switch to Turkish">TR</button>
+    </nav>
+  </header>
+
+  <div class="layout">
+    <main id="play" class="play">
+      <section class="table" data-i18n-aria="tableAria" aria-label="Table">
+        <button id="disc-2" class="corner" type="button"></button>
+        <div id="seat-2" class="seat seat-top"></div>
+        <button id="disc-1" class="corner" type="button"></button>
+        <div id="seat-3" class="seat seat-side"></div>
+        <div class="center">
+          <button id="pile" class="pile" type="button" data-drop="finish"></button>
+          <div id="indicator" class="indicator"></div>
+        </div>
+        <div id="seat-1" class="seat seat-side"></div>
+        <button id="disc-3" class="corner" type="button"></button>
+        <div id="seat-0" class="seat seat-me" aria-live="polite"></div>
+        <button id="disc-0" class="corner mine" type="button" data-drop="discard"></button>
+      </section>
+
+      <p id="hint" class="hint" aria-live="polite"></p>
+
+      <div class="controls">
+        <button id="btn-sort-runs" class="btn" type="button" data-i18n="sortRuns">Sort runs</button>
+        <button id="btn-sort-pairs" class="btn" type="button" data-i18n="sortPairs">Sort pairs</button>
+        <button id="btn-show" class="btn accent" type="button" data-i18n="showIndicator" hidden>Show indicator</button>
+        <button id="btn-discard" class="btn" type="button" data-i18n="discard">Discard</button>
+        <button id="btn-finish" class="btn finish" type="button" data-i18n="finish">Finish</button>
+        <button id="btn-next" class="btn primary" type="button" hidden>Next deal</button>
+      </div>
+
+      <div id="rack" class="rack" data-i18n-aria="rack" aria-label="Your rack"></div>
+    </main>
+
+    <aside class="side" aria-labelledby="side-heading">
+      <h2 id="side-heading" data-i18n="scoreTitle">Score table</h2>
+      <p id="side-title" class="muted"></p>
+      <div id="side-scores"></div>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <a href="https://github.com/celaldrg/okey" data-i18n="footer">MIT · Source on GitHub</a>
+  </footer>
+
+  <dialog id="dlg" aria-labelledby="dlg-title"></dialog>
+</body>
+</html>
